@@ -1,0 +1,14 @@
+<!DOCTYPE html >
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>게시물 작성폼</title>
+</head>
+<body>
+  <form th:action="@{/board/update/{id}(id=${boardentity.id})}" method="post">
+    제목:<input type="text" name="title" size="10" th:value="${boardentity.title}"><br/>
+    내용:<textarea name="content" th:text="${boardentity.content}"></textarea><br/>
+    <input type="submit" value="수정">
+  </form>
+</body>
+</html>

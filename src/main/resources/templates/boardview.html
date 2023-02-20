@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>게시글 상세 페이지</title>
+</head>
+<body>
+<H1 th:text="${boardentity.title}">제목입니다.</H1>
+<p th:text="${boardentity.content}">내용이 들어갈 자리</p>
+<img th:src="@{${boardentity.filepath}}"/><br/>
+<a th:href="@{${boardentity.filepath}}">이미지 다운로드</a><br/>
+<a th:href="@{/board/modify/{id}(id=${boardentity.id})}">글수정</a>&nbsp&nbsp&nbsp
+<a th:href="@{/board/delete(id=${boardentity.id})}">글삭제</a>
+</body>
+</html>

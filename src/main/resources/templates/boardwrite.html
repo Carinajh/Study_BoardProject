@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>게시물 작성폼</title>
+</head>
+<body>
+  <form action="/board/writepro" method="post" enctype="multipart/form-data">
+    제목:<input type="text" name="title" size="10"><br/>
+    내용:<textarea name="content"></textarea><br/>
+<!--    <input type="hidden" name="hit_cnt" value="0" size="10"><br/>-->
+<!--    <input type="hidden" name="like_cnt" value="0" size="10"><br/>-->
+<!--    <input type="hidden" name="dislike_cnt" value="0" size="10"><br/>-->
+<!--    <input type="hidden" name="score" value="0" size="10"><br/>-->
+    <input type="file" name="multipartFile">
+    <br/><br/>
+    <input type="submit" value="등록">
+  </form>
+</body>
+</html>

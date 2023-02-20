@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"><!-- 리스트 적용하기 -->
+<head>
+  <meta charset="UTF-8">
+  <title>게시글 조회</title>
+</head>
+<body>
+  <table border="1">
+      <th>글번호</th>
+      <th>제목</th>
+      <th>내용</th>
+      <th>조회수</th>
+      <th>좋아요</th>
+      <th>싫어요</th>
+      <th>평점</th>
+      <tr th:each="boardentity : ${list}">
+        <td th:text="${boardentity.id}"></td>
+        <td><a th:text="${boardentity.title}" th:href="@{/board/view(id=${boardentity.id})}"></a></td>
+        <td th:text="${boardentity.content}"></td>
+        <td th:text="${boardentity.hit_cnt}"></td>
+        <td th:text="${boardentity.like_cnt}"></td>
+        <td th:text="${boardentity.dislike_cnt}"></td>
+        <td th:text="${boardentity.score}"></td>
+      </tr>
+  </table>
+  <br/>
+  <th:block th:each="page: ${#numbers.sequence(startPage,endPage)}">
+    <a th:if="${page != nowPage}" th:href="@{/board/list(page=${page-1}, searchKeyword = ${param.strSearch})}" th:text="${page}"></a>
+    <strong th:if="${page == nowPage}" th:text="${page}" style="color : red"></strong>
+  </th:block>
+  <form th:action="@{/board/list}" method="get">
+    <input type="text" name="strSearch">
+    <button type="submit">검색</button>
+  </form>
+<input type="submit" name="/board/write" value="글쓰기">
+</body>
+</html>
